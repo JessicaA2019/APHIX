@@ -1,0 +1,4 @@
+Building DAG of jobs...
+WildcardError in rule create_gff_ref in file /home/torbett-seq2/Desktop/scripts_refs/Isoform_filter_script/snakemake_testing/Isoform_Pipeline/APHIX/Snakefile, line 138:
+Wildcards in input files cannot be determined from output files:
+'name'

@@ -1,0 +1,21 @@
+# Name of output folder
+sample_name: APHIX_test
+
+# Input FASTQ file
+input_fastq: test_files/APHIX_test.fastq
+
+# Reference genome
+reference_fasta: "test_files/NL43.fa"
+
+# Name for reference gff to be created
+reference_gff_name: "NL43.gff"
+
+# Threads
+threads: 4
+
+#Is the input file a fastq file?
+input_is_fastq: True 
+
+#Cluster Size
+cluster_size: 3
+

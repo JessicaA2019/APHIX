@@ -1,0 +1,66 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	HIV_Isoform_Checker
+	1	all
+	1	bam2gff
+	1	bam2gff_clusters
+	1	cluster
+	1	create_gff_ref
+	1	gff_compare
+	1	map_clusters
+	1	map_fq
+	1	mv_gff_ref
+	1	polish
+	1	ref_no_header
+	1	rename_checker_files
+	1	rename_gff_compare_files
+	14
+
+[Fri Jun 14 20:58:40 2024]
+rule ref_no_header:
+    input: test_files/NL43.fa
+    output: APHIX_bam2gff_cluster_test_isoform_analysis/1_mapped_reads/APHIX_bam2gff_cluster_test_ref_no_header.fa
+    jobid: 4
+
+[Fri Jun 14 20:58:40 2024]
+Finished job 4.
+1 of 14 steps (7%) done
+
+[Fri Jun 14 20:58:40 2024]
+rule map_fq:
+    input: test_files/APHIX_test.fastq, APHIX_bam2gff_cluster_test_isoform_analysis/1_mapped_reads/APHIX_bam2gff_cluster_test_ref_no_header.fa
+    output: APHIX_bam2gff_cluster_test_isoform_analysis/1_mapped_reads/APHIX_bam2gff_cluster_test.bam, APHIX_bam2gff_cluster_test_isoform_analysis/1_mapped_reads/APHIX_bam2gff_cluster_test.bam.bai
+    jobid: 12
+    wildcards: name=APHIX_bam2gff_cluster_test
+    threads: 4
+
+[Fri Jun 14 20:58:44 2024]
+Finished job 12.
+2 of 14 steps (14%) done
+
+[Fri Jun 14 20:58:44 2024]
+rule bam2gff:
+    input: APHIX_bam2gff_cluster_test_isoform_analysis/1_mapped_reads/APHIX_bam2gff_cluster_test.bam
+    output: APHIX_bam2gff_cluster_test_isoform_analysis/2_GFF/APHIX_bam2gff_cluster_test.gff
+    jobid: 13
+    wildcards: name=APHIX_bam2gff_cluster_test
+
+[Fri Jun 14 20:58:44 2024]
+Error in rule bam2gff:
+    jobid: 13
+    output: APHIX_bam2gff_cluster_test_isoform_analysis/2_GFF/APHIX_bam2gff_cluster_test.gff
+    shell:
+        
+        spliced_bam2gff -M APHIX_bam2gff_cluster_test_isoform_analysis/1_mapped_reads/APHIX_bam2gff_cluster_test.bam > APHIX_bam2gff_cluster_test_isoform_analysis/2_GFF/APHIX_bam2gff_cluster_test.gff
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job bam2gff since they might be corrupted:
+APHIX_bam2gff_cluster_test_isoform_analysis/2_GFF/APHIX_bam2gff_cluster_test.gff
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/torbett-seq2/Desktop/scripts_refs/Isoform_filter_script/snakemake_testing/Isoform_Pipeline/APHIX/.snakemake/log/2024-06-14T205840.819152.snakemake.log

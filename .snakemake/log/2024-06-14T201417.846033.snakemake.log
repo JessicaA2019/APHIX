@@ -1,0 +1,2 @@
+SyntaxError in file /home/torbett-seq2/Desktop/scripts_refs/Isoform_filter_script/snakemake_testing/Isoform_Pipeline/APHIX/Snakefile, line 59:
+EOF in multi-line statement (Snakefile, line 59)

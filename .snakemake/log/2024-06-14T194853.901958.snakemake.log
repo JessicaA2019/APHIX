@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 48 of /home/torbett-seq2/Desktop/scripts_refs/Isoform_filter_script/snakemake_testing/Isoform_Pipeline/APHIX/Snakefile:
+Missing input files for rule ref_no_header:
+/test_files/NL43.fa

@@ -1,0 +1,214 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 32
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+HIV_Isoform_Checker             1
+all                             1
+bam2gff                         1
+bam2gff_clusters                1
+cluster                         1
+create_gff_ref                  1
+gff_compare                     1
+map_clusters                    1
+map_fq                          1
+mv_gff_ref                      1
+polish                          1
+ref_no_header                   1
+rename_checker_files            1
+rename_gff_compare_files        1
+total                          14
+
+Select jobs to execute...
+
+[Mon Jun 17 09:40:56 2024]
+rule ref_no_header:
+    input: test_files/NL43.fa
+    output: APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test_ref_no_header.fa
+    jobid: 11
+    reason: Missing output files: APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test_ref_no_header.fa
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:40:56 2024]
+Finished job 11.
+1 of 14 steps (7%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:40:56 2024]
+rule map_fq:
+    input: test_files/APHIX_test.fastq, APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test_ref_no_header.fa
+    output: APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test.bam, APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test.bam.bai
+    jobid: 10
+    reason: Missing output files: APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test.bam; Input files updated by another job: APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test_ref_no_header.fa
+    wildcards: name=APHIX_32only_map_threads_test
+    threads: 32
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:40:57 2024]
+Finished job 10.
+2 of 14 steps (14%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:40:57 2024]
+rule bam2gff:
+    input: APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test.bam
+    output: APHIX_32only_map_threads_test_isoform_analysis/2_GFF/APHIX_32only_map_threads_test.gff
+    jobid: 9
+    reason: Missing output files: APHIX_32only_map_threads_test_isoform_analysis/2_GFF/APHIX_32only_map_threads_test.gff; Input files updated by another job: APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test.bam
+    wildcards: name=APHIX_32only_map_threads_test
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:40:58 2024]
+Finished job 9.
+3 of 14 steps (21%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:40:58 2024]
+rule cluster:
+    input: APHIX_32only_map_threads_test_isoform_analysis/2_GFF/APHIX_32only_map_threads_test.gff
+    output: APHIX_32only_map_threads_test_isoform_analysis/3_clustering/APHIX_32only_map_threads_test_clusters.tsv, APHIX_32only_map_threads_test_isoform_analysis/3_clustering/APHIX_32only_map_threads_test_cluster.gff
+    jobid: 8
+    reason: Missing output files: APHIX_32only_map_threads_test_isoform_analysis/3_clustering/APHIX_32only_map_threads_test_clusters.tsv; Input files updated by another job: APHIX_32only_map_threads_test_isoform_analysis/2_GFF/APHIX_32only_map_threads_test.gff
+    wildcards: name=APHIX_32only_map_threads_test
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:40:58 2024]
+Finished job 8.
+4 of 14 steps (29%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:40:58 2024]
+rule polish:
+    input: APHIX_32only_map_threads_test_isoform_analysis/3_clustering/APHIX_32only_map_threads_test_clusters.tsv, APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test.bam
+    output: APHIX_32only_map_threads_test_isoform_analysis/4_polishing/APHIX_32only_map_threads_test_polished.fa
+    jobid: 7
+    reason: Missing output files: APHIX_32only_map_threads_test_isoform_analysis/4_polishing/APHIX_32only_map_threads_test_polished.fa; Input files updated by another job: APHIX_32only_map_threads_test_isoform_analysis/3_clustering/APHIX_32only_map_threads_test_clusters.tsv, APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test.bam
+    wildcards: name=APHIX_32only_map_threads_test
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:41:04 2024]
+Finished job 7.
+5 of 14 steps (36%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:41:04 2024]
+rule map_clusters:
+    input: APHIX_32only_map_threads_test_isoform_analysis/4_polishing/APHIX_32only_map_threads_test_polished.fa, APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test_ref_no_header.fa
+    output: APHIX_32only_map_threads_test_isoform_analysis/5_polish_map/APHIX_32only_map_threads_test_polished.bam, APHIX_32only_map_threads_test_isoform_analysis/5_polish_map/APHIX_32only_map_threads_test_polished.bam.bai
+    jobid: 6
+    reason: Missing output files: APHIX_32only_map_threads_test_isoform_analysis/5_polish_map/APHIX_32only_map_threads_test_polished.bam; Input files updated by another job: APHIX_32only_map_threads_test_isoform_analysis/4_polishing/APHIX_32only_map_threads_test_polished.fa, APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test_ref_no_header.fa
+    wildcards: name=APHIX_32only_map_threads_test
+    threads: 32
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:41:04 2024]
+Finished job 6.
+6 of 14 steps (43%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:41:04 2024]
+rule bam2gff_clusters:
+    input: APHIX_32only_map_threads_test_isoform_analysis/5_polish_map/APHIX_32only_map_threads_test_polished.bam
+    output: APHIX_32only_map_threads_test_isoform_analysis/6_polish_gff/APHIX_32only_map_threads_test_polished.gff
+    jobid: 5
+    reason: Missing output files: APHIX_32only_map_threads_test_isoform_analysis/6_polish_gff/APHIX_32only_map_threads_test_polished.gff; Input files updated by another job: APHIX_32only_map_threads_test_isoform_analysis/5_polish_map/APHIX_32only_map_threads_test_polished.bam
+    wildcards: name=APHIX_32only_map_threads_test
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:41:04 2024]
+Finished job 5.
+7 of 14 steps (50%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:41:04 2024]
+rule create_gff_ref:
+    input: APHIX_32only_map_threads_test_isoform_analysis/6_polish_gff/APHIX_32only_map_threads_test_polished.gff, APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test_ref_no_header.fa, auxillary_scripts/auxillary.gff
+    output: NL43.gff
+    jobid: 13
+    reason: Missing output files: NL43.gff; Input files updated by another job: APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test_ref_no_header.fa, APHIX_32only_map_threads_test_isoform_analysis/6_polish_gff/APHIX_32only_map_threads_test_polished.gff; Set of input files has changed since last execution
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:41:04 2024]
+Finished job 13.
+8 of 14 steps (57%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:41:04 2024]
+rule mv_gff_ref:
+    input: NL43.gff
+    output: APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/NL43.gff
+    jobid: 12
+    reason: Missing output files: APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/NL43.gff; Input files updated by another job: NL43.gff
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:41:04 2024]
+Finished job 12.
+9 of 14 steps (64%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:41:04 2024]
+rule gff_compare:
+    input: APHIX_32only_map_threads_test_isoform_analysis/6_polish_gff/APHIX_32only_map_threads_test_polished.gff, APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/NL43.gff
+    output: gffcmp_novel_junction.tab, gffcmp.stats, gffcmp.tracking, gffcmp.loci, gffcmp.annotated.gtf
+    jobid: 4
+    reason: Missing output files: gffcmp_novel_junction.tab, gffcmp.stats, gffcmp.annotated.gtf, gffcmp.loci, gffcmp.tracking; Input files updated by another job: APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/NL43.gff, APHIX_32only_map_threads_test_isoform_analysis/6_polish_gff/APHIX_32only_map_threads_test_polished.gff
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:41:04 2024]
+Finished job 4.
+10 of 14 steps (71%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:41:04 2024]
+rule rename_gff_compare_files:
+    input: gffcmp.stats, gffcmp.tracking, gffcmp.loci, gffcmp.annotated.gtf, gffcmp_novel_junction.tab
+    output: APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/APHIX_32only_map_threads_test.stats, APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/APHIX_32only_map_threads_test.tracking, APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/APHIX_32only_map_threads_test.loci, APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/APHIX_32only_map_threads_test.annotated.gtf, APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/APHIX_32only_map_threads_test_novel_junction.tab
+    jobid: 3
+    reason: Missing output files: APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/APHIX_32only_map_threads_test.annotated.gtf; Input files updated by another job: gffcmp.tracking, gffcmp.annotated.gtf, gffcmp_novel_junction.tab, gffcmp.loci, gffcmp.stats
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:41:04 2024]
+Finished job 3.
+11 of 14 steps (79%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:41:04 2024]
+rule HIV_Isoform_Checker:
+    input: APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/APHIX_32only_map_threads_test.annotated.gtf, APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test_ref_no_header.fa
+    output: checked_isoforms_altered.txt, checked_isoforms.csv, checked_isoforms_fail.txt, checked_isoforms_pass.txt, checked_isoforms_isoform_counts.csv, checked_isoforms.log, checked_isoforms_ref_coordinates.txt, checked_isoforms_splice_site_usage.csv
+    jobid: 2
+    reason: Missing output files: checked_isoforms_ref_coordinates.txt, checked_isoforms_pass.txt, checked_isoforms_fail.txt, checked_isoforms_altered.txt, checked_isoforms.csv, checked_isoforms_isoform_counts.csv, checked_isoforms_splice_site_usage.csv, checked_isoforms.log; Input files updated by another job: APHIX_32only_map_threads_test_isoform_analysis/1_mapped_reads/APHIX_32only_map_threads_test_ref_no_header.fa, APHIX_32only_map_threads_test_isoform_analysis/7_gff_compare/APHIX_32only_map_threads_test.annotated.gtf
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:41:04 2024]
+Finished job 2.
+12 of 14 steps (86%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:41:04 2024]
+rule rename_checker_files:
+    input: checked_isoforms_altered.txt, checked_isoforms.csv, checked_isoforms_fail.txt, checked_isoforms_pass.txt, checked_isoforms_isoform_counts.csv, checked_isoforms.log, checked_isoforms_ref_coordinates.txt, checked_isoforms_splice_site_usage.csv
+    output: APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test_altered.txt, APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test.csv, APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test_fail.txt, APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test_pass.txt, APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test_isoform_counts.csv, APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test.log, APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test_ref_coordinates.txt, APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test_splice_site_usage.csv
+    jobid: 1
+    reason: Missing output files: APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test.csv; Input files updated by another job: checked_isoforms_ref_coordinates.txt, checked_isoforms_pass.txt, checked_isoforms_fail.txt, checked_isoforms_altered.txt, checked_isoforms.csv, checked_isoforms_isoform_counts.csv, checked_isoforms_splice_site_usage.csv, checked_isoforms.log
+    wildcards: name=APHIX_32only_map_threads_test
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:41:05 2024]
+Finished job 1.
+13 of 14 steps (93%) done
+Select jobs to execute...
+
+[Mon Jun 17 09:41:05 2024]
+localrule all:
+    input: APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test.csv
+    jobid: 0
+    reason: Input files updated by another job: APHIX_32only_map_threads_test_isoform_analysis/8_corrected_isoforms/APHIX_32only_map_threads_test.csv
+    resources: tmpdir=/tmp
+
+[Mon Jun 17 09:41:05 2024]
+Finished job 0.
+14 of 14 steps (100%) done
+Complete log: .snakemake/log/2024-06-17T094056.434996.snakemake.log

@@ -1,0 +1,5 @@
+Building DAG of jobs...
+Relative file path './test_files/NL43.fa' starts with './'. This is redundant and strongly discouraged. It can also lead to inconsistent results of the file-matching approach used by Snakemake. You can simply omit the './' for relative file paths.
+MissingInputException in line 58 of /home/torbett-seq2/Desktop/scripts_refs/Isoform_filter_script/snakemake_testing/Isoform_Pipeline/APHIX/Snakefile:
+Missing input files for rule map_fq:
+/test_files/APHIX_test.fastq

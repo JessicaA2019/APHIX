@@ -1,0 +1,19 @@
+name: APHIX
+channels:
+  - defaults
+  - conda-forge
+  - bioconda 
+dependencies:
+  - python=3.8
+  - pip
+  - snakemake
+  - pandas
+  - minimap2
+  - seqkit
+  - samtools
+  - spliced_bam2gff
+  - gffcompare
+  - pip:
+      - HIV_Isoform_Checker
+      - regex
+      - mappy
