@@ -1,4 +1,5 @@
 # Analysis Pipeline for HIV Isoform Xploration (APHIX)
+[![DOI](https://zenodo.org/badge/816422391.svg)](https://zenodo.org/doi/10.5281/zenodo.13755944)
 ### Overview
 APHIX is a pipeline for generating corrected HIV-1 spliced reads from end-to-end long-read sequences (such as from MrHAMER 2.0, Iso-Seq, or polyA Direct cDNA sequencing pipelines). The pipeline accepts FASTQ-format sequence files as input and outputs detailed information for each corrected isoform, splice site usage information and 
 isoform prevelence information. 
